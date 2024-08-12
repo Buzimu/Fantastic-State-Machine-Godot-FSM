@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cefmkqx81yl4h"]
+
+[ext_resource type="PackedScene" uid="uid://cxpo1h8yhig5o" path="res://Scenes/Player.tscn" id="1_ods4y"]
+[ext_resource type="Texture2D" uid="uid://bwlvermqxe7qr" path="res://Assets/texture_01.png" id="2_ssci7"]
+[ext_resource type="PackedScene" uid="uid://bddrbundumvf2" path="res://Scenes/Chicken.tscn" id="3_sma7e"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xaky0"]
+texture = ExtResource("2_ssci7")
+texture_region_size = Vector2i(1024, 1024)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fsy2f"]
+sources/1 = SubResource("TileSetAtlasSource_xaky0")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_fsy2f")
+format = 2
+layer_0/tile_data = PackedInt32Array(2621512, 1, 0, 2621448, 1, 0, -1572856, 1, 0, -1572792, 1, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_ods4y")]
+position = Vector2(511, 305)
+
+[node name="Chicken" parent="." instance=ExtResource("3_sma7e")]
