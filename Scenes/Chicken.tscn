@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/FiniteStateMachine.gd" id="4_nsr0b"]
 [ext_resource type="Script" path="res://Scripts/NPCIdle.gd" id="5_1jmli"]
 [ext_resource type="Script" path="res://Scripts/NPCWander.gd" id="6_fj7ch"]
-[ext_resource type="Script" path="res://Scripts/NPCHitbox.gd" id="7_aixd1"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="7_aixd1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jl2jw"]
 atlas = ExtResource("1_hkl7h")
