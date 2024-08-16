@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cxpo1h8yhig5o"]
+[gd_scene load_steps=43 format=3 uid="uid://cxpo1h8yhig5o"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_bwa2n"]
 [ext_resource type="Script" path="res://Scripts/FiniteStateMachine.gd" id="2_ru5n0"]
@@ -7,9 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bbj3k6748p5me" path="res://Assets/SpriteSheetCollection.png" id="5_chsf0"]
 [ext_resource type="Script" path="res://Scripts/PlayerWalk.gd" id="5_fiyhe"]
 [ext_resource type="Script" path="res://Scripts/PlayerSprint.gd" id="6_i56oa"]
-[ext_resource type="Script" path="res://Scenes/PlayerSprite.gd" id="8_lgx24"]
-[ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="8_tqup5"]
-[ext_resource type="Script" path="res://Scenes/InteractionsHost.gd" id="9_t5ax7"]
+[ext_resource type="Script" path="res://Scenes/PlayerHurtbox.gd" id="8_okjjb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5plk6"]
 atlas = ExtResource("5_chsf0")
@@ -259,8 +257,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwy5n"]
-radius = 8.0
-height = 38.0
+radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_bwa2n")
@@ -273,10 +270,9 @@ initial_state = NodePath("Idle")
 script = ExtResource("3_80cft")
 sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="Attack" type="Node" parent="FSM" node_paths=PackedStringArray("sprite", "hurtbox")]
+[node name="Attack" type="Node" parent="FSM" node_paths=PackedStringArray("sprite")]
 script = ExtResource("4_l1iee")
 sprite = NodePath("../../AnimatedSprite2D")
-hurtbox = NodePath("../../Interactions/Hurtbox")
 
 [node name="Walk" type="Node" parent="FSM" node_paths=PackedStringArray("sprite")]
 script = ExtResource("5_fiyhe")
@@ -294,20 +290,13 @@ sprite_frames = SubResource("SpriteFrames_f4hu3")
 animation = &"Attack"
 frame = 5
 frame_progress = 1.0
-script = ExtResource("8_lgx24")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
-[node name="Interactions" type="Area2D" parent="."]
-script = ExtResource("9_t5ax7")
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("8_okjjb")
 
-[node name="Hurtbox" type="Area2D" parent="Interactions"]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("8_tqup5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Hurtbox"]
-position = Vector2(14, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(13, 0)
 shape = SubResource("CapsuleShape2D_vwy5n")
-debug_color = Color(0.862325, 0.35967, 0, 0.42)

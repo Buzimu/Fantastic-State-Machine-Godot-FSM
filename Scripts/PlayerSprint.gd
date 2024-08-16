@@ -20,6 +20,10 @@ func Update(_delta : float):
 		sprite.flip_h = input_dir.x < 0
 	Move(input_dir)
 	
+	# Update facing direction
+	if input_dir != Vector2.ZERO:
+		player.DirectionChanged.emit(input_dir)
+	
 	if not Input.is_action_pressed("Sprint"):
 		Transition("Walk")
 	elif input_dir.length() <= 0:

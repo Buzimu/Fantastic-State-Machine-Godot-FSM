@@ -20,6 +20,6 @@ format = 2
 layer_0/tile_data = PackedInt32Array(2621512, 1, 0, 2621448, 1, 0, -1572856, 1, 0, -1572792, 1, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_ods4y")]
-position = Vector2(511, 305)
+position = Vector2(442, 300)
 
 [node name="Chicken" parent="." instance=ExtResource("3_sma7e")]
