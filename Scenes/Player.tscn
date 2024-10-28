@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bbj3k6748p5me" path="res://Assets/SpriteSheetCollection.png" id="5_chsf0"]
 [ext_resource type="Script" path="res://Scripts/PlayerWalk.gd" id="5_fiyhe"]
 [ext_resource type="Script" path="res://Scripts/PlayerSprint.gd" id="6_i56oa"]
-[ext_resource type="Script" path="res://Scenes/PlayerSprite.gd" id="8_lgx24"]
+[ext_resource type="Script" path="res://Scripts/PlayerSprite.gd" id="8_lgx24"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="8_tqup5"]
-[ext_resource type="Script" path="res://Scenes/InteractionsHost.gd" id="9_t5ax7"]
+[ext_resource type="Script" path="res://Scripts/InteractionsHost.gd" id="9_t5ax7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5plk6"]
 atlas = ExtResource("5_chsf0")

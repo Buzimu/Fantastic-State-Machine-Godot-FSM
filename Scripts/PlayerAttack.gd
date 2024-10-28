@@ -43,10 +43,6 @@ func _on_player_direction_changed(new_direction: Vector2):
 	facing_direction = new_direction
 	print("Player is now facing: ", facing_direction)
 
-
-
-
-
 func activate_hurtbox():
 	if hurtbox:
 		hurtbox.monitoring = true

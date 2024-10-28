@@ -6,7 +6,7 @@ class_name PlayerIdle
 func Enter():
 	print("Entered the Idle State")
 	sprite.play("Idle")
-	pass
+	
 
 func Update(_delta):
 	if(Input.get_vector("MoveLeft","MoveRight","MoveUp","MoveDown").normalized()):
