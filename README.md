@@ -3,6 +3,8 @@
 
 Features of the FSM
 ---
+	Hit and Hurt boxes for all characters
+ 
 	Player
 		Idle: Animation, listens for walk and attack signals
 		Walk: Animation, move&slide + orientation,  listens for sprint, attack
@@ -11,13 +13,14 @@ Features of the FSM
 	Chicken! (Passive NPCs)
 		Idle: Animation, occasially wanders			
 		Wander: Animation, Aimlessly move to a new location
+		Flee: Animation, locates damage source and moves away from it
 Work in Progress
 ---
 	Chicken!
-		Flee
+		Health / Death
 Planned
 ---
 	Hostile NPCs
-	Hit and Hurt boxes for all characters
-	Health
-	Death
+	NPC Hunger
+ 	NPC Personalities
+	NPC Population Control
