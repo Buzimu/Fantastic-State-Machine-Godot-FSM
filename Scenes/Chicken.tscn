@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bddrbundumvf2"]
+[gd_scene load_steps=20 format=3 uid="uid://bddrbundumvf2"]
 
 [ext_resource type="Texture2D" uid="uid://bo24wislb06rh" path="res://Assets/ChickenIdle-Sheet.png" id="1_hkl7h"]
 [ext_resource type="Texture2D" uid="uid://cx1wg53otpcj8" path="res://Assets/ChickenWalking.png" id="2_rijub"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/NPCIdle.gd" id="5_1jmli"]
 [ext_resource type="Script" path="res://Scripts/NPCWander.gd" id="6_fj7ch"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="7_aixd1"]
+[ext_resource type="Script" path="res://Scripts/NPCFlee.gd" id="7_udup7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jl2jw"]
 atlas = ExtResource("1_hkl7h")
@@ -94,7 +95,6 @@ script = ExtResource("3_orxnb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(532, 294)
 sprite_frames = SubResource("SpriteFrames_2ek1i")
 animation = &"Walk"
 
@@ -110,11 +110,16 @@ sprite = NodePath("../../AnimatedSprite2D")
 script = ExtResource("6_fj7ch")
 sprite = NodePath("../../AnimatedSprite2D")
 
-[node name="NPCHitbox" type="Area2D" parent="."]
-position = Vector2(532, 296)
+[node name="Flee" type="Node" parent="FSM" node_paths=PackedStringArray("sprite")]
+script = ExtResource("7_udup7")
+sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Interactions" type="Area2D" parent="."]
+
+[node name="NPCHitbox" type="Area2D" parent="Interactions"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_aixd1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/NPCHitbox"]
 shape = SubResource("CircleShape2D_0wiwv")
