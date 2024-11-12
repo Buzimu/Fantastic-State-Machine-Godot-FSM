@@ -1,26 +1,50 @@
-# Fantastic State Machine Godot FSM
- Compartimentalizing the FSM
+# 🎮 Fantastic State Machine
+![Godot v4.0+](https://img.shields.io/badge/Godot-v4.0+-blue.svg)
+![Status](https://img.shields.io/badge/Status-In_Development-green.svg)
 
-Features of the FSM
+A modular Finite State Machine implementation for Godot 4.0+, focusing on clean architecture and reusable game states.
+
+## 🌟 Core Features
+
+### 🛠️ Base Systems
+- Advanced State Machine Architecture
+- Universal Hit and Hurt Box System
+- Dynamic Animation Management
+
+### 🦸 Player Character
+| State | Features |
+|-------|----------|
+| 🧍 Idle | Base animation, input listening (walk/attack) |
+| 🚶 Walk | Smooth movement & orientation, input listening (sprint/attack) |
+| 🏃 Sprint | Enhanced movement speed, stamina management |
+| ⚔️ Attack | Combat animation, dynamic hurtbox creation |
+
+### 🐔 Passive NPCs (Chicken)
+| State | Features |
+|-------|----------|
+| 🧍‍♂️ Idle | Base animation, wandering triggers |
+| 🚶‍♂️ Wander | Pathfinding, random movement patterns |
+| 💨 Flee | Threat detection, evasive movement |
+| ❤️ Health | Damage system, invincibility frames, death handling |
+
+## 🚧 Work in Progress
+- 📦 Loot Tables and Item Drops
+  - Random item generation
+  - Drop rate management
+  - Item quality variation
+
+## 🎯 Planned Features
+1. 🎒 Player Inventory System
+2. 👿 Hostile NPCs
+3. 🍖 NPC Hunger Mechanics
+4. 🎭 NPC Personality System
+5. 📊 NPC Population Management
+
+## 🔄 Development Workflow
+- Modular development approach
+- Regular feature updates
+- Comprehensive testing
+- Community-driven improvements
+
 ---
-	Hit and Hurt boxes for all characters
- 
-	Player
-		Idle: Animation, listens for walk and attack signals
-		Walk: Animation, move&slide + orientation,  listens for sprint, attack
-		Sprint: Animation, faster move&side, listens for sprint release, attack
-		Attack: Animation, waits for attack to finish, creates a hurtbox
-	Chicken! (Passive NPCs)
-		Idle: Animation, occasially wanders			
-		Wander: Animation, Aimlessly move to a new location
-		Flee: Animation, locates damage source and moves away from it
-Work in Progress
----
-	Chicken!
-		Health / Death
-Planned
----
-	Hostile NPCs
-	NPC Hunger
- 	NPC Personalities
-	NPC Population Control
+*Made with ❤️ using Godot Engine*

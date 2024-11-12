@@ -1,13 +1,59 @@
-[gd_scene load_steps=20 format=3 uid="uid://bddrbundumvf2"]
+[gd_scene load_steps=36 format=3 uid="uid://bddrbundumvf2"]
 
 [ext_resource type="Texture2D" uid="uid://bo24wislb06rh" path="res://Assets/ChickenIdle-Sheet.png" id="1_hkl7h"]
+[ext_resource type="Script" path="res://Scripts/NPCStats.gd" id="2_f2tsq"]
 [ext_resource type="Texture2D" uid="uid://cx1wg53otpcj8" path="res://Assets/ChickenWalking.png" id="2_rijub"]
 [ext_resource type="Script" path="res://Scripts/chicken.gd" id="3_orxnb"]
+[ext_resource type="Script" path="res://Scripts/NPCVitality.gd" id="3_phlus"]
+[ext_resource type="Texture2D" uid="uid://b33ak4rc8onsa" path="res://Assets/ChickenDamage-Sheet.png" id="4_mcbwh"]
 [ext_resource type="Script" path="res://Scripts/FiniteStateMachine.gd" id="4_nsr0b"]
 [ext_resource type="Script" path="res://Scripts/NPCIdle.gd" id="5_1jmli"]
+[ext_resource type="Texture2D" uid="uid://cegdjvuynvmoy" path="res://Assets/ChickenDie-Sheet.png" id="5_c52c5"]
 [ext_resource type="Script" path="res://Scripts/NPCWander.gd" id="6_fj7ch"]
 [ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="7_aixd1"]
 [ext_resource type="Script" path="res://Scripts/NPCFlee.gd" id="7_udup7"]
+[ext_resource type="Script" path="res://Scripts/NPCDeath.gd" id="10_ehtsm"]
+[ext_resource type="Script" path="res://Scripts/NPCDamaged.gd" id="13_c0hol"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rapbp"]
+atlas = ExtResource("4_mcbwh")
+region = Rect2(0, 0, 20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mommh"]
+atlas = ExtResource("4_mcbwh")
+region = Rect2(20, 0, 20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8u2y"]
+atlas = ExtResource("4_mcbwh")
+region = Rect2(40, 0, 20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bvsp"]
+atlas = ExtResource("4_mcbwh")
+region = Rect2(60, 0, 20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hpqd"]
+atlas = ExtResource("4_mcbwh")
+region = Rect2(80, 0, 20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upfa2"]
+atlas = ExtResource("4_mcbwh")
+region = Rect2(100, 0, 20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qbpm"]
+atlas = ExtResource("5_c52c5")
+region = Rect2(0, 0, 20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnyvv"]
+atlas = ExtResource("5_c52c5")
+region = Rect2(20, 0, 20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohone"]
+atlas = ExtResource("5_c52c5")
+region = Rect2(40, 0, 20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t3cm"]
+atlas = ExtResource("5_c52c5")
+region = Rect2(60, 0, 20, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jl2jw"]
 atlas = ExtResource("1_hkl7h")
@@ -47,6 +93,46 @@ region = Rect2(60, 0, 20, 21)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ek1i"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rapbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mommh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8u2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bvsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hpqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upfa2")
+}],
+"loop": false,
+"name": &"Damage",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qbpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnyvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohone")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t3cm")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 2.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jl2jw")
@@ -93,6 +179,12 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("3_orxnb")
 
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("2_f2tsq")
+
+[node name="Vitality" type="Node" parent="Stats"]
+script = ExtResource("3_phlus")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_2ek1i")
@@ -112,6 +204,14 @@ sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="Flee" type="Node" parent="FSM" node_paths=PackedStringArray("sprite")]
 script = ExtResource("7_udup7")
+sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Death" type="Node" parent="FSM" node_paths=PackedStringArray("sprite")]
+script = ExtResource("10_ehtsm")
+sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Damaged" type="Node" parent="FSM" node_paths=PackedStringArray("sprite")]
+script = ExtResource("13_c0hol")
 sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="Interactions" type="Area2D" parent="."]
