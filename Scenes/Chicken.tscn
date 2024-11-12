@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bddrbundumvf2"]
+[gd_scene load_steps=37 format=3 uid="uid://bddrbundumvf2"]
 
 [ext_resource type="Texture2D" uid="uid://bo24wislb06rh" path="res://Assets/ChickenIdle-Sheet.png" id="1_hkl7h"]
 [ext_resource type="Script" path="res://Scripts/NPCStats.gd" id="2_f2tsq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/NPCFlee.gd" id="7_udup7"]
 [ext_resource type="Script" path="res://Scripts/NPCDeath.gd" id="10_ehtsm"]
 [ext_resource type="Script" path="res://Scripts/NPCDamaged.gd" id="13_c0hol"]
+[ext_resource type="Script" path="res://Scripts/NPCLootTable.gd" id="15_3gn7v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rapbp"]
 atlas = ExtResource("4_mcbwh")
@@ -223,3 +224,6 @@ script = ExtResource("7_aixd1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/NPCHitbox"]
 shape = SubResource("CircleShape2D_0wiwv")
+
+[node name="Loot Table" type="Node" parent="Interactions"]
+script = ExtResource("15_3gn7v")
