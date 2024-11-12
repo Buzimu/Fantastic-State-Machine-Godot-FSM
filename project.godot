@@ -18,6 +18,7 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 SignalManager="*res://Scripts/Signal_Manager.gd"
+StatusEffects="*res://Scripts/status_effects.gd"
 
 [input]
 

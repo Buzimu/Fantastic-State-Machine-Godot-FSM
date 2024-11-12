@@ -9,5 +9,4 @@ func _ready():
 func _on_area_entered(area):
 	if area.is_in_group("hitboxes"):
 		print("Hurtbox sent a hit!")
-		SignalManager.hit_occurred.emit(area, self)
-		
+		SignalManager.hit_occurred.emit(area, self, area.damage)
