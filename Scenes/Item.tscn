@@ -1,13 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwiu4kkayhvqa"]
+[gd_scene load_steps=4 format=3 uid="uid://bwiu4kkayhvqa"]
 
 [ext_resource type="Script" path="res://Scripts/Item.gd" id="1_ecyqo"]
 [ext_resource type="Texture2D" uid="uid://34hj36nwylp0" path="res://Assets/icon.svg" id="2_1dytd"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qx4c3"]
+radius = 3.53553
+
 [node name="Item" type="Node2D"]
 script = ExtResource("1_ecyqo")
-itemID = null
-expansion = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_1dytd")
+
+[node name="ItemArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemArea"]
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_qx4c3")
+debug_color = Color(0.641953, 0.522554, 0.096243, 0.42)
+
+[connection signal="area_entered" from="ItemArea" to="." method="_on_item_area_area_entered"]

@@ -10,6 +10,7 @@ A modular Finite State Machine implementation for Godot 4.0+, focusing on clean 
 - Advanced State Machine Architecture
 - Universal Hit and Hurt Box System
 - Dynamic Animation Management
+- Item Collection System with Magnetic Pull
 
 ### 🦸 Player Character
 | State | Features |
@@ -26,12 +27,8 @@ A modular Finite State Machine implementation for Godot 4.0+, focusing on clean 
 | 🚶‍♂️ Wander | Pathfinding, random movement patterns |
 | 💨 Flee | Threat detection, evasive movement |
 | ❤️ Health | Damage system, invincibility frames, death handling |
+| 💎 Loot | Dynamic item drops with collection mechanics |
 
-## 🚧 Work in Progress
-- 📦 Loot Tables and Item Drops
-  - Random item generation
-  - Drop rate management
-  - Item quality variation
 
 ## 🎯 Planned Features
 1. 🎒 Player Inventory System
