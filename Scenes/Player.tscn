@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cxpo1h8yhig5o"]
+[gd_scene load_steps=49 format=3 uid="uid://cxpo1h8yhig5o"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_bwa2n"]
 [ext_resource type="Script" path="res://Scripts/FiniteStateMachine.gd" id="2_ru5n0"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Scripts/PlayerSprite.gd" id="8_lgx24"]
 [ext_resource type="Script" path="res://Scripts/Hurtbox.gd" id="8_tqup5"]
 [ext_resource type="Script" path="res://Scripts/InteractionsHost.gd" id="9_t5ax7"]
+[ext_resource type="Script" path="res://Scripts/ItemMagnet.gd" id="11_7roiy"]
+[ext_resource type="Script" path="res://Scripts/Hitbox.gd" id="12_tssv6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5plk6"]
 atlas = ExtResource("5_chsf0")
@@ -262,6 +264,13 @@ animations = [{
 radius = 8.0
 height = 38.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykd81"]
+radius = 38.0132
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drkw4"]
+radius = 8.0
+height = 32.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_bwa2n")
 
@@ -311,3 +320,21 @@ script = ExtResource("8_tqup5")
 position = Vector2(14, 0)
 shape = SubResource("CapsuleShape2D_vwy5n")
 debug_color = Color(0.862325, 0.35967, 0, 0.42)
+
+[node name="ItemMagnet" type="Area2D" parent="Interactions"]
+position = Vector2(-1, 0)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("11_7roiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/ItemMagnet"]
+shape = SubResource("CircleShape2D_ykd81")
+debug_color = Color(0.627764, 0.531843, 0.064345, 0.0862745)
+
+[node name="PlayerHitbox" type="Area2D" parent="Interactions" groups=["player_hitbox"]]
+collision_layer = 128
+collision_mask = 8
+script = ExtResource("12_tssv6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/PlayerHitbox"]
+shape = SubResource("CapsuleShape2D_drkw4")

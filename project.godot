@@ -19,6 +19,8 @@ config/icon="res://Assets/icon.svg"
 
 SignalManager="*res://Scripts/Signal_Manager.gd"
 StatusEffects="*res://Scripts/status_effects.gd"
+ItemDB="*res://Scripts/ItemDB.gd"
+LootDB="*res://Scripts/LootDB.gd"
 
 [input]
 
@@ -57,6 +59,8 @@ Sprint={
 
 2d_physics/layer_1="game world"
 2d_physics/layer_2="hitboxes"
+2d_physics/layer_4="items"
+2d_physics/layer_8="item collection"
 
 [rendering]
 
