@@ -37,11 +37,11 @@ func _ready() -> void:
 	if texture:
 		sprite.texture = texture
 		sprite.region_enabled = true
-		sprite.region_rect = Rect2(
-			item_data.spriteCoords.x * 32,
-			item_data.spriteCoords.y * 32,
-			32, 32
-		)
+		
+		# Calculate region based on 64x64 grid
+		var x = item_data.spriteCoords.x * 64
+		var y = item_data.spriteCoords.y * 64
+		sprite.region_rect = Rect2(x, y, 64, 64)
 
 func _physics_process(delta: float) -> void:
 	if being_pulled and pull_target and can_be_magnetically_pulled:

@@ -11,12 +11,12 @@ func load_items() -> void:
 	_items = {
 		1: {
 			"name": "Raw Poultry",
-			"spritesheet": "sp0",
-			"spriteCoords": Vector2(0, 0)
+			"spritesheet": "items64",
+			"spriteCoords": Vector2(0, 1)
 		},
 		2: {
 			"name": "Feather",
-			"spritesheet": "sp0",
+			"spritesheet": "items64",
 			"spriteCoords": Vector2(1, 0)
 		}
 	}

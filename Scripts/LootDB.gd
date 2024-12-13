@@ -12,7 +12,7 @@ func load_loot_tables() -> void:
 			"guaranteed": [
 				{
 					"itemId": 1,
-					"quantity": Vector2i(1, 1)
+					"quantity": Vector2i(2, 2)
 				}
 			],
 			"random": [

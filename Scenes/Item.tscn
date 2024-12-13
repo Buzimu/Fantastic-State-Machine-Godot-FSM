@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwiu4kkayhvqa"]
 
 [ext_resource type="Script" path="res://Scripts/Item.gd" id="1_ecyqo"]
-[ext_resource type="Texture2D" uid="uid://34hj36nwylp0" path="res://Assets/icon.svg" id="2_1dytd"]
+[ext_resource type="Texture2D" uid="uid://b8lhfjv0ealto" path="res://Assets/items64.png" id="2_iihj1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qx4c3"]
 radius = 3.53553
@@ -11,7 +11,7 @@ script = ExtResource("1_ecyqo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_1dytd")
+texture = ExtResource("2_iihj1")
 
 [node name="ItemArea" type="Area2D" parent="."]
 collision_layer = 8
